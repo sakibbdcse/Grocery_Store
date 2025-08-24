@@ -18,17 +18,15 @@ def fetch_all_products():
             "UnitName": UnitName,
         })
     cursor.close()
-    print(products)
     return products
 
-def insert_new_product():
+def insert_new_product(value):
     conn = get_db_connection()
     if not conn:
         print("Database connection is not established.")
         return[]
     cursor = conn.cursor()
     query = "INSERT INTO products (ProductsName, Price, Quantity, Unit) VALUES (%s, %s, %s, %s)"
-    value = ('apple', 140, 1, 1)
     try:
         cursor.execute(query,value)
         conn.commit()
@@ -57,9 +55,3 @@ def delete_product(product_id):
     finally:
         cursor.close()
         
-if __name__ == "__main__":
-    # insert_new_product()
-    # fetch_all_products()
-    # delete_product(1)
-    # fetch_all_products()
-    pass
