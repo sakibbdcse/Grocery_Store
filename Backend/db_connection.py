@@ -1,28 +1,22 @@
 import mysql.connector
 from mysql.connector import Error
 
-try:
-    conn = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='Root@1234',
-        database='Grocery_Store'
-    )
-    if conn.is_connected():
-        print("Connected to MySQL server")
-    cursor = conn.cursor()
-    cursor.execute("SHOW DATABASES;")
-    
-    print("Databases:")
-    for db in cursor:
-        print(db[0])
-    
-except Error as e:
-    print(f"connecting to MySQL Error: {e}")
-    conn = None
+__connection = None;
 
-finally:
-    if conn.is_connected():
-        cursor.close()
-        conn.close()
-        print("MySQL connection closed")
+def get_db_connection():
+    print("Establishing connection to MySQL server...")
+    global __connection
+    if __connection is None:
+        try:
+            __connection = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password='Root@1234',
+                database='Grocery_Store'
+            )
+            if __connection.is_connected():
+                print("Connection established successfully.")
+        except Error as e:
+            print(f"Error: {e}")
+            __connection = None
+    return __connection;
