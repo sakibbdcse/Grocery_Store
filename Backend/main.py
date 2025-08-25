@@ -20,8 +20,13 @@ def get_products():
 def add_product():
     if not request.json:
         return jsonify({"error": "Invalid input"}), 400
-    data = request.get_json()
-    result = insert_new_product(data)
-    return jsonify({"message": "Product added successfully"}), 201
+    data = request.json
+    print("Incoming data:", data)
+    success = insert_new_product(data)
+    if success:
+        return jsonify({"message": "Product added successfully"}), 201
+    else:
+        return jsonify({"message": "Failed to add product"}), 400
+    
 if __name__ == "__main__":
     app.run(debug=True)
