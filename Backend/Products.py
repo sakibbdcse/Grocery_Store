@@ -55,17 +55,26 @@ def delete_product(product_id):
     conn = get_db_connection()
     if not conn:
         print("Database connection is not established.")
-        return[]
-    cursor = conn.cursor()
-    query = "DELETE FROM products WHERE Id = %s"
-    value = (product_id,)
+        return False
+    cursor = None
+    
     try:
-        cursor.execute(query,value)
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM products WHERE Id = %s", (product_id,))
         conn.commit()
-        print("Product deleted successfully.")
+        if cursor.rowcount > 0:
+            print("Deleted Product ID:", product_id)
+        else:
+            print("Product not found:", product_id)
+            
     except Exception as e:
         print(f"Error deleting product: {e}")
         conn.rollback()
+        return False
+    
     finally:
-        cursor.close()
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
         

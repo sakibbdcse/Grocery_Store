@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from db_connection import get_db_connection
-from Products import fetch_all_products,insert_new_product
+from Products import fetch_all_products,insert_new_product,delete_product
 import mysql.connector
 import json
 
@@ -27,6 +27,10 @@ def add_product():
         return jsonify({"message": "Product added successfully"}), 201
     else:
         return jsonify({"message": "Failed to add product"}), 400
-    
+
+@app.route('/delete/<int:product_id>', methods=['DELETE'])
+def delete(product_id):
+    delete_product(product_id)
+    return jsonify({"message": "Product deleted successfully"}), 200
 if __name__ == "__main__":
     app.run(debug=True)
