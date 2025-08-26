@@ -1,0 +1,13 @@
+.footer {
+  background-color: #212529; /* Dark background */
+  font-size: 0.9rem;
+}
+
+.footer a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #0d6efd; /* Bootstrap primary blue on hover */
+}
