@@ -27,14 +27,54 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              {/* Example row */}
               <tr>
                 <td>2025-08-25</td>
                 <td>#001</td>
                 <td>John Doe</td>
                 <td>$150.00</td>
               </tr>
-              {/* Rows will be dynamically generated */}
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>2025-08-25</td>
+                <td>#001</td>
+                <td>John Doe</td>
+                <td>$150.00</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -50,7 +90,6 @@ const Home = () => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-body text-center">
-              {/* Add user profile content here */}
               <h5 className="mb-3">User Profile</h5>
               <p>Name: John Doe</p>
               <p>Email: johndoe@example.com</p>
