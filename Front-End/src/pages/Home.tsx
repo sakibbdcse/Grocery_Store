@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <div className="container my-5">
@@ -8,9 +10,9 @@ const Home = () => {
           <a href="order.html" className="btn btn-primary me-2">
             New Order
           </a>
-          <a href="manage-product.html" className="btn btn-secondary">
+          <Link to="/manage" className="btn btn-secondary">
             Manage Products
-          </a>
+          </Link>
         </div>
       </div>
 
